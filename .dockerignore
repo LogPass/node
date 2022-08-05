@@ -1,0 +1,15 @@
+*
+
+!.devops/docker/*
+!vcpkg/*
+
+!CMake/*
+!CMakeLists.txt
+!CMakeSettings.json
+!benchmarks/*
+!*.ini
+!*.json
+!*.pem
+!python/*
+!src/*
+!tests/*

@@ -1,0 +1,109 @@
+---
+name: CI
+'on':
+  push:
+  workflow_dispatch:
+
+env:
+  IS_DEPENDABOT_BUILD: "${{ github.actor == 'dependabot[bot]' }}"
+  # use buildkit to build docker-compose services' images
+  COMPOSE_DOCKER_CLI_BUILD: true
+  DOCKER_BUILDKIT: true
+  DOCKER_COMPOSE_CI_PATH: >-
+    ${{ github.workspace }}/.devops/docker/docker-compose.ci.yml
+
+jobs:
+  test_commons:
+    uses: LogPass/reusable-workflows/.github/workflows/test_commons.yml@main
+
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      DOCKER_BASE_IMAGE: "logpass/node"
+      COMPOSE_PROJECT_NAME: "node-${{ github.run_id }}"
+    steps:
+      - name: clean after previous run
+        working-directory: /tmp
+        run: |
+          sudo rm -rf "${{ github.workspace }}" \
+          && mkdir -p "${{ github.workspace }}"
+      - uses: actions/checkout@v3
+      - name: populate dynamic environment variables
+        run: echo "USER_ID=$(id -u)" >> ${GITHUB_ENV}
+      - name: login to dockerhub
+        if: env.IS_DEPENDABOT_BUILD == 'false'
+        uses: docker/login-action@v1.14.1
+        with:
+          username: "${{ secrets.DOCKERHUB_USERNAME }}"
+          password: "${{ secrets.DOCKERHUB_TOKEN }}"
+          # NOTE: self-hosted GitHub Actions runners can be hosted on one
+          # machine
+          logout: false
+      - name: build docker-compose services
+        run: |
+          # setup images cache
+          docker-compose \
+            -f docker-compose.yml \
+            -f "${DOCKER_COMPOSE_CI_PATH}" \
+          pull \
+            --include-deps \
+          node
+          docker-compose \
+            -f docker-compose.yml \
+            -f "${DOCKER_COMPOSE_CI_PATH}" \
+          build node
+      - name: test
+        run: |
+          docker-compose \
+            -f docker-compose.yml \
+            -f "${DOCKER_COMPOSE_CI_PATH}" \
+          run \
+            --rm \
+          node \
+          ./build/Debug/node_tests \
+            --catch_system_error=yes \
+            --report_level=detailed \
+            --report_sink=stdout \
+            --log_format=JUNIT \
+            --log_level=message \
+            --log_sink=junit.xml
+      - name: upload test.log file
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test.log
+          path: ./test.log
+          if-no-files-found: ignore
+      - name: push CI image
+        # TODO(skarzi): fix when we migrate to a new self-hosted GitHub Actions
+        # Runners architecture
+        continue-on-error: true
+        run: |
+          docker tag "node:ci-${GITHUB_RUN_ID}" "${DOCKER_BASE_IMAGE}:ci"
+          docker push "${DOCKER_BASE_IMAGE}:ci"
+      - name: clean docker system
+        if: always()
+        run: |
+          docker-compose \
+            -f docker-compose.yml \
+            -f "${DOCKER_COMPOSE_CI_PATH}" \
+          down \
+            --rmi local \
+            --volumes \
+            --remove-orphans \
+          || true
+          docker system prune \
+            --all \
+            --filter "until=2h" \
+            --force \
+          || true
+      - name: publish unit test report
+        uses: EnricoMi/publish-unit-test-result-action@v1.31
+        if: always() && env.IS_DEPENDABOT_BUILD == 'false'
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          files: junit.xml
+          comment_mode: update last
+          check_name: unit test report
+          report_individual_runs: true

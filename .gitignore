@@ -1,0 +1,39 @@
+.vs
+Debug
+Release
+x64
+cache
+blocks
+build
+database
+!src/database
+!tests/database
+!benchmarks/database
+backup
+backups
+checkpoints
+core
+*.exe
+*.exe*
+*.exp
+*.ilk
+*.pdb
+*.dll
+*.lib
+*.iobj
+*.log
+*.json
+*.pem
+
+# python
+*.ipdb
+__pycache__/
+*.pyc
+*.pyo
+.python-version
+
+# docker
+docker-compose.override.yml
+
+# local development
+config.ini

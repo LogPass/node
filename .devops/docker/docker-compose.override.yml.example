@@ -1,0 +1,29 @@
+---
+version: '3.8'
+services:
+  node:
+    user: "!!UID!!"
+    build:
+      target: development-stage
+      args:
+        LOGPASS_ENV: development
+        USER_ID: "!!UID!!"
+        BUILD_TYPE: "Debug"
+    command: "./build/Debug/node"
+    ports:
+      - "8080:8080"
+      - "8150:8150"
+    volumes:
+      - ./:/app
+    networks:
+      default: {}
+      logpass_global:
+        aliases:
+          - logpass-node
+
+networks:
+  # default `docker-compose` network
+  default: {}
+  # global network used to connect to other logpass services
+  logpass_global:
+    external: true

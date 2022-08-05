@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "node", "node.vcxproj", "{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Benchmarks|x64 = Benchmarks|x64
+		Benchmarks|x86 = Benchmarks|x86
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+		Tests|x64 = Tests|x64
+		Tests|x86 = Tests|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}.Benchmarks|x64.ActiveCfg = Benchmarks|x64
+		{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}.Benchmarks|x64.Build.0 = Benchmarks|x64
+		{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}.Benchmarks|x86.ActiveCfg = Benchmarks|x64
+		{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}.Debug|x64.ActiveCfg = Debug|x64
+		{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}.Debug|x64.Build.0 = Debug|x64
+		{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}.Debug|x86.ActiveCfg = Debug|x64
+		{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}.Release|x64.ActiveCfg = Release|x64
+		{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}.Release|x64.Build.0 = Release|x64
+		{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}.Release|x86.ActiveCfg = Release|x64
+		{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}.Tests|x64.ActiveCfg = Tests|x64
+		{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}.Tests|x64.Build.0 = Tests|x64
+		{F4D5DA1D-1E87-4DE2-81A3-1F8BCF352BF3}.Tests|x86.ActiveCfg = Tests|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {956B37DB-D306-4DBF-9684-99CA6F5FDC0E}
+	EndGlobalSection
+EndGlobal

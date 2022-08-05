@@ -1,0 +1,24 @@
+---
+version: '3.8'
+services:
+  node:
+    build:
+      context: .
+      dockerfile: ./.devops/docker/Dockerfile
+    expose:
+      - 8080
+      - 8150
+    healthcheck:
+      # `$$` is used here to escape `$`
+      test: |
+        /usr/bin/test $$(
+          /usr/bin/curl \
+            --fail http://localhost:8080/status/ \
+            --write-out "%{http_code}" \
+            --silent \
+            --output /dev/null
+        ) -eq 200
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s

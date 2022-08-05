@@ -1,0 +1,984 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\blockchain">
+      <UniqueIdentifier>{c170a7b0-0ef4-48d0-83e2-5178369a9429}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\communication">
+      <UniqueIdentifier>{da6c92cc-7ca7-4bae-a551-babccc40c2d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\filesystem">
+      <UniqueIdentifier>{8bfbc6e4-4a07-40a8-ab8b-15675c38e5d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tools">
+      <UniqueIdentifier>{1c1dd113-3f28-4ece-a27d-1f4f338218ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\blockchain">
+      <UniqueIdentifier>{357c35ee-44d7-48db-919a-eb801feaf536}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\filesystem">
+      <UniqueIdentifier>{fa619e10-f348-4191-92fd-967d9a1ada59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tools">
+      <UniqueIdentifier>{90707750-ab18-47d8-8e6b-7470b99c2baa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\blockchain\transactions">
+      <UniqueIdentifier>{da39bbc4-f6bb-4a3c-842b-670e84810c96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\blockchain\transactions">
+      <UniqueIdentifier>{ecd5434b-90af-47b2-8a0c-4ca630e1cbf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\crypto">
+      <UniqueIdentifier>{bf290e5e-a5c5-4397-b8e4-deff4b9229f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\communication">
+      <UniqueIdentifier>{80d25267-8d8a-4612-9c00-ef6e37062210}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\api">
+      <UniqueIdentifier>{914529cb-b709-4574-9746-27de42c28174}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\api">
+      <UniqueIdentifier>{fe7c1ab5-c67a-48e7-b56f-949cfaee607b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\database">
+      <UniqueIdentifier>{fd6bdd43-4174-4688-a658-89d8e27e557a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{193eb697-9c06-4250-afa1-6952349f5614}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Benchmarks">
+      <UniqueIdentifier>{6ce92838-a919-4b55-bcbf-e144a673cb26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\communication\packets">
+      <UniqueIdentifier>{f9af9904-9a16-4de3-9cfc-b26831ce9c31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\communication\packets">
+      <UniqueIdentifier>{37483e78-f256-43f4-8a24-e16e744f27ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\database">
+      <UniqueIdentifier>{60aaa886-5a80-4572-a2e3-a8204abed24b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\blockchain\block">
+      <UniqueIdentifier>{5484fcab-6b2a-489b-b5e6-6cdc2ddcaa95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\blockchain\block">
+      <UniqueIdentifier>{4819a596-a497-4077-9807-7dcda1db2806}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\api">
+      <UniqueIdentifier>{f4bda682-9cf8-4fdc-b789-83ac043e2088}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\blockchain">
+      <UniqueIdentifier>{a8eef2ba-1e49-4549-b9c2-ef1a6b976411}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\communication">
+      <UniqueIdentifier>{31b2c5f0-747d-4d38-a425-b67e2ee5cd80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\crypto">
+      <UniqueIdentifier>{4d428de8-dfed-42a7-9c07-2df954481d78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\database">
+      <UniqueIdentifier>{8d8cf428-064d-47c5-95f9-07050e7880a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\filesystem">
+      <UniqueIdentifier>{b813b795-354a-4e1a-af79-bbe0aa10632d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\integration">
+      <UniqueIdentifier>{2c39592f-1ac0-4a8a-9590-855c03dbc99b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\tools">
+      <UniqueIdentifier>{800e0f37-20f8-48cd-9ec0-85dd514760af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\blockchain\transactions">
+      <UniqueIdentifier>{9c78ae60-1458-424e-bedf-35a1d49b4cef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\blockchain\block">
+      <UniqueIdentifier>{a2172a4d-b05f-497d-98f2-a420aa306b3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\blockchain\transactions\storage">
+      <UniqueIdentifier>{f2d0e045-7c5b-4a53-b1d9-68134f636ffe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\blockchain\transactions\storage">
+      <UniqueIdentifier>{b59ee6bf-4da6-45bb-9578-f5273f98c343}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\crypto">
+      <UniqueIdentifier>{0bedf3cb-0485-41ce-a5fc-d31bbd37e5e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\communication\connection">
+      <UniqueIdentifier>{3f4c3657-c27b-4d3b-b5b7-5a7c340d8bd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\communication\connection">
+      <UniqueIdentifier>{ea397d51-9d20-4bdb-baaf-3dd277bd33fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\database\columns">
+      <UniqueIdentifier>{42110ab4-1bb1-41b1-98b0-692019109729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\database\columns">
+      <UniqueIdentifier>{3c3b9af8-bf7d-4063-9552-f463e1580db2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\database\facades">
+      <UniqueIdentifier>{c12388b5-6df8-4aa4-84cd-8c0c0f9b859b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\database\facades">
+      <UniqueIdentifier>{4c4db7f1-dd92-4ae1-8b9b-4d3679f5d017}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\database\columns">
+      <UniqueIdentifier>{483e2898-c770-41c9-9095-73045090c480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\database\facades">
+      <UniqueIdentifier>{7146950a-8ddf-4214-908e-ec6f5db57112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\models">
+      <UniqueIdentifier>{326700a4-f05d-42b3-a543-fff50c4fca7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\models\miner">
+      <UniqueIdentifier>{a2c94119-c261-46d5-860d-3d91b483e1e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\models\storage">
+      <UniqueIdentifier>{4e94b11b-3324-4779-b076-1c380a9e65da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\models\user">
+      <UniqueIdentifier>{d2adecf9-93a3-4efa-acc0-8faa56b77556}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\models">
+      <UniqueIdentifier>{07f8d232-13c2-47d0-a21a-39b59ddbdaa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\models\miner">
+      <UniqueIdentifier>{2315d5a1-c09a-4de0-82c0-7359e6406df6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\models\user">
+      <UniqueIdentifier>{776036ee-972f-4fbe-bac8-ecc7bd8bcd50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\models\storage">
+      <UniqueIdentifier>{15ada4de-7729-48f8-9d37-9e1cd0e5c32f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\blockchain\transactions\storage">
+      <UniqueIdentifier>{0518e073-c650-43fc-8e33-6a274c21b26f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\models">
+      <UniqueIdentifier>{890e726a-d6bf-4747-842d-1750f2ee2392}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\blockchain.cpp">
+      <Filter>Source Files\blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\transaction.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crypto\checksum.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crypto\private_key.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crypto\public_key.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\update_miner.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\create_miner.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\update_user.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\transfer.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\create_user.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\init.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\communication.cpp">
+      <Filter>Source Files\communication</Filter>
+    </ClCompile>
+    <ClCompile Include="src\filesystem\filesystem.cpp">
+      <Filter>Source Files\filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crypto\crypto_array.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\api\api.cpp">
+      <Filter>Source Files\api</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\events.cpp">
+      <Filter>Source Files\blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\select_miner.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="benchmarks\main.cpp">
+      <Filter>Benchmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\packet.cpp">
+      <Filter>Source Files\communication\packets</Filter>
+    </ClCompile>
+    <ClCompile Include="benchmarks\blockchain.cpp">
+      <Filter>Benchmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="benchmarks\crypto.cpp">
+      <Filter>Benchmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\block\block.cpp">
+      <Filter>Source Files\blockchain\block</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\block\block_header.cpp">
+      <Filter>Source Files\blockchain\block</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\block\block_iterator.cpp">
+      <Filter>Source Files\blockchain\block</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\commit.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\block\block_transaction_ids.cpp">
+      <Filter>Source Files\blockchain\block</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\block\block_body.cpp">
+      <Filter>Source Files\blockchain\block</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\blockchain_test.cpp">
+      <Filter>Source Files\blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\init.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\blockchain.cpp">
+      <Filter>Tests\blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\crypto\crypto.cpp">
+      <Filter>Tests\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\tools\serializer.cpp">
+      <Filter>Tests\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\main.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\lock_user.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\create_user.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\transfer.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\events.cpp">
+      <Filter>Tests\blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\crypto_verifier.cpp">
+      <Filter>Source Files\blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\crypto\transaction_id.cpp">
+      <Filter>Tests\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\session.cpp">
+      <Filter>Source Files\communication</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\communication\communication.cpp">
+      <Filter>Tests\communication</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\communication_test.cpp">
+      <Filter>Source Files\communication</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\block\block.cpp">
+      <Filter>Tests\blockchain\block</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\block_tree.cpp">
+      <Filter>Source Files\blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\block_tree.cpp">
+      <Filter>Tests\blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\connection_manager.cpp">
+      <Filter>Source Files\communication</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\communication\connection_manager.cpp">
+      <Filter>Tests\communication</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\communication\connection.cpp">
+      <Filter>Tests\communication</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\get_block_header.cpp">
+      <Filter>Source Files\communication\packets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\storage\create_prefix.cpp">
+      <Filter>Source Files\blockchain\transactions\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\storage\update_prefix.cpp">
+      <Filter>Source Files\blockchain\transactions\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\storage\add_entry.cpp">
+      <Filter>Source Files\blockchain\transactions\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\block\pending_block.cpp">
+      <Filter>Source Files\blockchain\block</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\pending_transactions.cpp">
+      <Filter>Source Files\blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\bans.cpp">
+      <Filter>Source Files\blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\block\pending_block.cpp">
+      <Filter>Tests\blockchain\block</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\blockchain_options.cpp">
+      <Filter>Source Files\blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\first_packet.cpp">
+      <Filter>Source Files\communication\packets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\get_block.cpp">
+      <Filter>Source Files\communication\packets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\new_blocks.cpp">
+      <Filter>Source Files\communication\packets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\communication_options.cpp">
+      <Filter>Source Files\communication</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\database_options.cpp">
+      <Filter>Source Files\database</Filter>
+    </ClCompile>
+    <ClCompile Include="src\api\api_options.cpp">
+      <Filter>Source Files\api</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\get_new_transactions.cpp">
+      <Filter>Source Files\communication\packets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\new_transactions.cpp">
+      <Filter>Source Files\communication\packets</Filter>
+    </ClCompile>
+    <ClCompile Include="benchmarks\multiple_instances.cpp">
+      <Filter>Benchmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\connection\connection.cpp">
+      <Filter>Source Files\communication\connection</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\acceptor.cpp">
+      <Filter>Source Files\communication</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\connection\secure_connection.cpp">
+      <Filter>Source Files\communication\connection</Filter>
+    </ClCompile>
+    <ClCompile Include="src\crypto\certificate.cpp">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\connection\unsecure_connection.cpp">
+      <Filter>Source Files\communication\connection</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\communication\acceptor.cpp">
+      <Filter>Tests\communication</Filter>
+    </ClCompile>
+    <ClCompile Include="src\api\api_server.cpp">
+      <Filter>Source Files\api</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\crypto\private_key.cpp">
+      <Filter>Tests\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\columns\column.cpp">
+      <Filter>Source Files\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\columns\default.cpp">
+      <Filter>Source Files\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\facades\facade.cpp">
+      <Filter>Source Files\database\facades</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\facades\users.cpp">
+      <Filter>Source Files\database\facades</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\facades\miners.cpp">
+      <Filter>Source Files\database\facades</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\columns\users.cpp">
+      <Filter>Source Files\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\columns\blocks.cpp">
+      <Filter>Source Files\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\columns\miners.cpp">
+      <Filter>Source Files\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\columns\storage_entries.cpp">
+      <Filter>Source Files\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\columns\storage_prefixes.cpp">
+      <Filter>Source Files\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\columns\transaction_hashes.cpp">
+      <Filter>Source Files\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\columns\transactions.cpp">
+      <Filter>Source Files\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\columns\user_history.cpp">
+      <Filter>Source Files\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\facades\blocks.cpp">
+      <Filter>Source Files\database\facades</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\facades\storage.cpp">
+      <Filter>Source Files\database\facades</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\facades\transactions.cpp">
+      <Filter>Source Files\database\facades</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\database\facades\blocks.cpp">
+      <Filter>Tests\database\facades</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\facades\state.cpp">
+      <Filter>Source Files\database\facades</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\database\columns\blocks.cpp">
+      <Filter>Tests\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\database\facades\users.cpp">
+      <Filter>Tests\database\facades</Filter>
+    </ClCompile>
+    <ClCompile Include="benchmarks\models.cpp">
+      <Filter>Benchmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\database.cpp">
+      <Filter>Source Files\database</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\database\database.cpp">
+      <Filter>Tests\database</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\base_database.cpp">
+      <Filter>Source Files\database</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\mining_queue.cpp">
+      <Filter>Tests\blockchain</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\lock_user.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\unlock_user.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\transaction.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\crypto\multi_signatures.cpp">
+      <Filter>Tests\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="src\models\storage\prefix.cpp">
+      <Filter>Source Files\models\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\models\storage\storage_entry.cpp">
+      <Filter>Source Files\models\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\models\miner\miner.cpp">
+      <Filter>Source Files\models\miner</Filter>
+    </ClCompile>
+    <ClCompile Include="src\models\miner\miner_settings.cpp">
+      <Filter>Source Files\models\miner</Filter>
+    </ClCompile>
+    <ClCompile Include="src\models\user\user.cpp">
+      <Filter>Source Files\models\user</Filter>
+    </ClCompile>
+    <ClCompile Include="src\models\user\user_history.cpp">
+      <Filter>Source Files\models\user</Filter>
+    </ClCompile>
+    <ClCompile Include="src\models\user\user_settings.cpp">
+      <Filter>Source Files\models\user</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\logout_user.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\models\user\power_level.cpp">
+      <Filter>Source Files\models\user</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\update_user.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\increase_stake.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\withdraw_stake.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\transactions\sponsor_user.cpp">
+      <Filter>Source Files\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\sponsor_user.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\columns\user_sponsors.cpp">
+      <Filter>Source Files\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database\columns\user_updates.cpp">
+      <Filter>Source Files\database\columns</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\increase_stake.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\commit.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\create_miner.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\logout_user.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\select_miner.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\unlock_user.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\withdraw_stake.cpp">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\storage\add_entry.cpp">
+      <Filter>Tests\blockchain\transactions\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\storage\create_prefix.cpp">
+      <Filter>Tests\blockchain\transactions\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\storage\update_prefix.cpp">
+      <Filter>Tests\blockchain\transactions\storage</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\filesystem\filesystem.cpp">
+      <Filter>Tests\filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\models\miner.cpp">
+      <Filter>Tests\models</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\blockchain\blockchain.h">
+      <Filter>Header Files\blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\transaction.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\serializer.hpp">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypto\crypto.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypto\hash.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypto\private_key.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypto\public_key.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\update_miner.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\create_miner.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\transfer.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\create_user.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\init.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\filesystem\filesystem.h">
+      <Filter>Header Files\filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypto\crypto_array.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypto\signature.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\communication.h">
+      <Filter>Header Files\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="src\api\api.h">
+      <Filter>Header Files\api</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\events.h">
+      <Filter>Header Files\blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypto\miner_id.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypto\user_id.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\update_user.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\select_miner.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\increase_stake.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="benchmarks\time_tester.h">
+      <Filter>Benchmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\packets\packet.h">
+      <Filter>Header Files\communication\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\endpoint.hpp">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\safe_callback.hpp">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\block\block.h">
+      <Filter>Header Files\blockchain\block</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\block\block_body.h">
+      <Filter>Header Files\blockchain\block</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\block\block_header.h">
+      <Filter>Header Files\blockchain\block</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\block\block_iterator.h">
+      <Filter>Header Files\blockchain\block</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\commit.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\json_templates.hpp">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\performance_timer.hpp">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\const.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\block\block_transaction_ids.h">
+      <Filter>Header Files\blockchain\block</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\blockchain_test.h">
+      <Filter>Header Files\blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\crypto_verifier.h">
+      <Filter>Header Files\blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\post_transaction_result.h">
+      <Filter>Header Files\blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypto\transaction_id.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\thread.hpp">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\session.h">
+      <Filter>Header Files\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\communication_test.h">
+      <Filter>Header Files\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\block_tree.h">
+      <Filter>Header Files\blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\connection_manager.h">
+      <Filter>Header Files\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\packets\get_block_header.h">
+      <Filter>Header Files\communication\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\storage\create_prefix.h">
+      <Filter>Header Files\blockchain\transactions\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\storage\update_prefix.h">
+      <Filter>Header Files\blockchain\transactions\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\storage\add_entry.h">
+      <Filter>Header Files\blockchain\transactions\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\block\pending_block.h">
+      <Filter>Header Files\blockchain\block</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\block_tree_node.h">
+      <Filter>Header Files\blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\pending_transactions.h">
+      <Filter>Header Files\blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\blockchain_options.h">
+      <Filter>Header Files\blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\bans.h">
+      <Filter>Header Files\blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\enum_printer.hpp">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\session_data.h">
+      <Filter>Header Files\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\packets\first_packet.h">
+      <Filter>Header Files\communication\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\packets\packet_execution_params.h">
+      <Filter>Header Files\communication\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\packets\get_block.h">
+      <Filter>Header Files\communication\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\packets\new_blocks.h">
+      <Filter>Header Files\communication\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\communication_options.h">
+      <Filter>Header Files\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="src\api\api_options.h">
+      <Filter>Header Files\api</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\database_options.h">
+      <Filter>Header Files\database</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\logger.hpp">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\packets\get_new_transactions.h">
+      <Filter>Header Files\communication\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\packets\new_transactions.h">
+      <Filter>Header Files\communication\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\connection\connection.h">
+      <Filter>Header Files\communication\connection</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\acceptor.h">
+      <Filter>Header Files\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\connection\secure_connection.h">
+      <Filter>Header Files\communication\connection</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypto\certificate.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\connection\unsecure_connection.h">
+      <Filter>Header Files\communication\connection</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\connection\connection_callbacks.h">
+      <Filter>Header Files\communication\connection</Filter>
+    </ClInclude>
+    <ClInclude Include="src\api\api_server.h">
+      <Filter>Header Files\api</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\assert.hpp">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\shared_transaction_ids.h">
+      <Filter>Header Files\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\shared_thread.hpp">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\column.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\default.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\facades\facade.h">
+      <Filter>Header Files\database\facades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\facades\users.h">
+      <Filter>Header Files\database\facades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\facades\miners.h">
+      <Filter>Header Files\database\facades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\users.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\blocks.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\miners.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\storage_entries.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\storage_prefixes.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\transaction_hashes.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\transactions.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\user_history.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\facades\blocks.h">
+      <Filter>Header Files\database\facades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\facades\storage.h">
+      <Filter>Header Files\database\facades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\facades\transactions.h">
+      <Filter>Header Files\database\facades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\facades\state.h">
+      <Filter>Header Files\database\facades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\stateful_column.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\database.h">
+      <Filter>Header Files\database</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\unconfirmed_database.h">
+      <Filter>Header Files\database</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns.h">
+      <Filter>Header Files\database</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\confirmed_database.h">
+      <Filter>Header Files\database</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\base_database.h">
+      <Filter>Header Files\database</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\blockchain\blockchain_fixture.h">
+      <Filter>Tests\blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\database\database_fixture.h">
+      <Filter>Tests\database</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\communication\communication_fixture.h">
+      <Filter>Tests\communication</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\database_facades.h">
+      <Filter>Header Files\database</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\blockchain\test_user.h">
+      <Filter>Tests\blockchain</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\blockchain\transactions\transaction_fixture.h">
+      <Filter>Tests\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\exception.hpp">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\lock_user.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\unlock_user.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypto\multi_signatures.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\miner\miner.h">
+      <Filter>Header Files\models\miner</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\miner\miner_settings.h">
+      <Filter>Header Files\models\miner</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\user.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\user_history.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\user_key_settings.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\user_keys.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\user_security_rules.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\user_settings.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\user_settings_validation_error.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\user_supervisor_settings.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\user_supervisors.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\user_update.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\storage\prefix.h">
+      <Filter>Header Files\models\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\storage\prefix_settings.h">
+      <Filter>Header Files\models\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\storage\storage_entry.h">
+      <Filter>Header Files\models\storage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\logout_user.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\invalid_power_exception.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\power_level.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\withdraw_stake.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\blockchain\transactions\sponsor_user.h">
+      <Filter>Header Files\blockchain\transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\user_sponsors.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\database\columns\user_updates.h">
+      <Filter>Header Files\database\columns</Filter>
+    </ClInclude>
+    <ClInclude Include="src\models\user\user_sponsor.h">
+      <Filter>Header Files\models\user</Filter>
+    </ClInclude>
+    <ClInclude Include="src\crypto\exception.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tools\event_loop_thread.hpp">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+</Project>

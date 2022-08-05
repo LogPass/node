@@ -1,0 +1,774 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Benchmarks|x64">
+      <Configuration>Benchmarks</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Tests|x64">
+      <Configuration>Tests</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{f4d5da1d-1e87-4de2-81a3-1f8bcf352bf3}</ProjectGuid>
+    <RootNamespace>node</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tests|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Tests'" Label="Globals">
+    <VcpkgConfiguration>Debug</VcpkgConfiguration>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Tests|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)\src</IncludePath>
+    <OutDir>$(SolutionDir)</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)\src</IncludePath>
+    <TargetName>$(ProjectName)_tests</TargetName>
+    <OutDir>$(SolutionDir)</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)\src</IncludePath>
+    <TargetName>$(ProjectName)</TargetName>
+    <OutDir>$(SolutionDir)</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)\src</IncludePath>
+    <TargetName>$(ProjectName)_benchmarks</TargetName>
+    <OutDir>$(SolutionDir)</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">
+    <VcpkgConfiguration>Release</VcpkgConfiguration>
+    <VcpkgUseStatic>false</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgUseStatic>false</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgUseStatic>false</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">
+    <VcpkgUseStatic>false</VcpkgUseStatic>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;USE_IROHA_ED25519;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <AdditionalIncludeDirectories>$(ProjectDir)src</AdditionalIncludeDirectories>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <DisableSpecificWarnings>5045; 4267; 4244</DisableSpecificWarnings>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>shlwapi.lib;rpcrt4.lib;bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;USE_IROHA_ED25519;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <AdditionalIncludeDirectories>$(ProjectDir)src; $(ProjectDir)tests</AdditionalIncludeDirectories>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <DisableSpecificWarnings>5045; 4267; 4244</DisableSpecificWarnings>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>shlwapi.lib;rpcrt4.lib;bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;USE_IROHA_ED25519;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <AdditionalIncludeDirectories>$(ProjectDir)src</AdditionalIncludeDirectories>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <DisableSpecificWarnings>5045; 4267; 4244</DisableSpecificWarnings>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>shlwapi.lib;rpcrt4.lib;bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;USE_IROHA_ED25519;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)tests</AdditionalIncludeDirectories>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <DisableSpecificWarnings>5045; 4267; 4244</DisableSpecificWarnings>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>shlwapi.lib;rpcrt4.lib;bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="benchmarks\blockchain.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="benchmarks\crypto.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="benchmarks\main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="benchmarks\models.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="benchmarks\multiple_instances.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\api\api.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\api\api_options.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\api\api_server.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\blockchain\bans.cpp" />
+    <ClCompile Include="src\blockchain\blockchain.cpp" />
+    <ClCompile Include="src\blockchain\blockchain_options.cpp" />
+    <ClCompile Include="src\blockchain\blockchain_test.cpp" />
+    <ClCompile Include="src\blockchain\block\block.cpp" />
+    <ClCompile Include="src\blockchain\block\block_body.cpp" />
+    <ClCompile Include="src\blockchain\block\block_transaction_ids.cpp" />
+    <ClCompile Include="src\blockchain\block\block_header.cpp" />
+    <ClCompile Include="src\blockchain\block\block_iterator.cpp" />
+    <ClCompile Include="src\blockchain\block\pending_block.cpp" />
+    <ClCompile Include="src\blockchain\block_tree.cpp" />
+    <ClCompile Include="src\blockchain\crypto_verifier.cpp" />
+    <ClCompile Include="src\blockchain\events.cpp" />
+    <ClCompile Include="src\blockchain\pending_transactions.cpp" />
+    <ClCompile Include="src\blockchain\transactions\lock_user.cpp" />
+    <ClCompile Include="src\blockchain\transactions\create_miner.cpp" />
+    <ClCompile Include="src\blockchain\transactions\create_user.cpp" />
+    <ClCompile Include="src\blockchain\transactions\init.cpp" />
+    <ClCompile Include="src\blockchain\transactions\logout_user.cpp" />
+    <ClCompile Include="src\blockchain\transactions\commit.cpp" />
+    <ClCompile Include="src\blockchain\transactions\sponsor_user.cpp" />
+    <ClCompile Include="src\blockchain\transactions\storage\add_entry.cpp" />
+    <ClCompile Include="src\blockchain\transactions\storage\create_prefix.cpp" />
+    <ClCompile Include="src\blockchain\transactions\storage\update_prefix.cpp" />
+    <ClCompile Include="src\blockchain\transactions\transaction.cpp" />
+    <ClCompile Include="src\blockchain\transactions\transfer.cpp" />
+    <ClCompile Include="src\blockchain\transactions\increase_stake.cpp" />
+    <ClCompile Include="src\blockchain\transactions\unlock_user.cpp" />
+    <ClCompile Include="src\blockchain\transactions\update_miner.cpp" />
+    <ClCompile Include="src\blockchain\transactions\select_miner.cpp" />
+    <ClCompile Include="src\blockchain\transactions\update_user.cpp" />
+    <ClCompile Include="src\blockchain\transactions\withdraw_stake.cpp" />
+    <ClCompile Include="src\communication\acceptor.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\communication.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\communication_options.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\communication_test.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\connection\connection.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\connection\secure_connection.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\connection\unsecure_connection.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\connection_manager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\get_block_header.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\first_packet.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\get_block.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\get_new_transactions.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\new_blocks.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\new_transactions.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\packets\packet.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\communication\session.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\crypto\certificate.cpp" />
+    <ClCompile Include="src\crypto\crypto_array.cpp" />
+    <ClCompile Include="src\crypto\checksum.cpp" />
+    <ClCompile Include="src\crypto\private_key.cpp" />
+    <ClCompile Include="src\crypto\public_key.cpp" />
+    <ClCompile Include="src\database\base_database.cpp" />
+    <ClCompile Include="src\database\columns\blocks.cpp" />
+    <ClCompile Include="src\database\columns\column.cpp" />
+    <ClCompile Include="src\database\columns\default.cpp" />
+    <ClCompile Include="src\database\columns\miners.cpp" />
+    <ClCompile Include="src\database\columns\storage_entries.cpp" />
+    <ClCompile Include="src\database\columns\storage_prefixes.cpp" />
+    <ClCompile Include="src\database\columns\transactions.cpp" />
+    <ClCompile Include="src\database\columns\transaction_hashes.cpp" />
+    <ClCompile Include="src\database\columns\users.cpp" />
+    <ClCompile Include="src\database\columns\user_history.cpp" />
+    <ClCompile Include="src\database\columns\user_sponsors.cpp" />
+    <ClCompile Include="src\database\columns\user_updates.cpp" />
+    <ClCompile Include="src\database\database_options.cpp" />
+    <ClCompile Include="src\database\facades\blocks.cpp" />
+    <ClCompile Include="src\database\facades\facade.cpp" />
+    <ClCompile Include="src\database\facades\miners.cpp" />
+    <ClCompile Include="src\database\facades\state.cpp" />
+    <ClCompile Include="src\database\facades\storage.cpp" />
+    <ClCompile Include="src\database\facades\transactions.cpp" />
+    <ClCompile Include="src\database\facades\users.cpp" />
+    <ClCompile Include="src\database\database.cpp" />
+    <ClCompile Include="src\filesystem\filesystem.cpp" />
+    <ClCompile Include="src\main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\models\miner\miner.cpp" />
+    <ClCompile Include="src\models\miner\miner_settings.cpp" />
+    <ClCompile Include="src\models\storage\prefix.cpp" />
+    <ClCompile Include="src\models\storage\storage_entry.cpp" />
+    <ClCompile Include="src\models\user\power_level.cpp" />
+    <ClCompile Include="src\models\user\user.cpp" />
+    <ClCompile Include="src\models\user\user_history.cpp" />
+    <ClCompile Include="src\models\user\user_settings.cpp" />
+    <ClCompile Include="src\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">Create</PrecompiledHeader>
+      <LanguageStandard_C Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdc17</LanguageStandard_C>
+      <LanguageStandard_C Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdc17</LanguageStandard_C>
+      <LanguageStandard_C Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">stdc17</LanguageStandard_C>
+      <LanguageStandard_C Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">stdc17</LanguageStandard_C>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\blockchain.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\block\block.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\block\pending_block.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\block_tree.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\events.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\mining_queue.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\commit.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\create_miner.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\lock_user.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\increase_stake.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\create_user.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\init.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\logout_user.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\select_miner.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\sponsor_user.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\storage\add_entry.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\storage\create_prefix.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\storage\update_prefix.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\transaction.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\transfer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\unlock_user.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\update_user.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\blockchain\transactions\withdraw_stake.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\communication\acceptor.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\communication\communication.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\communication\connection.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\communication\connection_manager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\crypto\crypto.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\crypto\private_key.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\crypto\multi_signatures.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\crypto\transaction_id.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\database\columns\blocks.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\database\facades\blocks.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\database\facades\users.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\database\database.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\filesystem\filesystem.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\models\miner.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tests\tools\serializer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="benchmarks\time_tester.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Benchmarks|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\api\api.h" />
+    <ClInclude Include="src\api\api_options.h" />
+    <ClInclude Include="src\api\api_server.h" />
+    <ClInclude Include="src\blockchain\bans.h" />
+    <ClInclude Include="src\blockchain\blockchain.h" />
+    <ClInclude Include="src\blockchain\blockchain_options.h" />
+    <ClInclude Include="src\blockchain\blockchain_test.h" />
+    <ClInclude Include="src\blockchain\block\block.h" />
+    <ClInclude Include="src\blockchain\block\block_body.h" />
+    <ClInclude Include="src\blockchain\block\block_transaction_ids.h" />
+    <ClInclude Include="src\blockchain\block\block_header.h" />
+    <ClInclude Include="src\blockchain\block\block_iterator.h" />
+    <ClInclude Include="src\blockchain\block\pending_block.h" />
+    <ClInclude Include="src\blockchain\block_tree.h" />
+    <ClInclude Include="src\blockchain\block_tree_node.h" />
+    <ClInclude Include="src\blockchain\crypto_verifier.h" />
+    <ClInclude Include="src\blockchain\events.h" />
+    <ClInclude Include="src\blockchain\pending_transactions.h" />
+    <ClInclude Include="src\blockchain\post_transaction_result.h" />
+    <ClInclude Include="src\blockchain\transactions\lock_user.h" />
+    <ClInclude Include="src\blockchain\transactions\create_miner.h" />
+    <ClInclude Include="src\blockchain\transactions\create_user.h" />
+    <ClInclude Include="src\blockchain\transactions\init.h" />
+    <ClInclude Include="src\blockchain\transactions\logout_user.h" />
+    <ClInclude Include="src\blockchain\transactions\commit.h" />
+    <ClInclude Include="src\blockchain\transactions\sponsor_user.h" />
+    <ClInclude Include="src\blockchain\transactions\storage\add_entry.h" />
+    <ClInclude Include="src\blockchain\transactions\storage\create_prefix.h" />
+    <ClInclude Include="src\blockchain\transactions\storage\update_prefix.h" />
+    <ClInclude Include="src\blockchain\transactions\transaction.h" />
+    <ClInclude Include="src\blockchain\transactions\transfer.h" />
+    <ClInclude Include="src\blockchain\transactions\increase_stake.h" />
+    <ClInclude Include="src\blockchain\transactions\unlock_user.h" />
+    <ClInclude Include="src\blockchain\transactions\update_miner.h" />
+    <ClInclude Include="src\blockchain\transactions\select_miner.h" />
+    <ClInclude Include="src\blockchain\transactions\update_user.h" />
+    <ClInclude Include="src\blockchain\transactions\withdraw_stake.h" />
+    <ClInclude Include="src\communication\acceptor.h" />
+    <ClInclude Include="src\communication\communication.h" />
+    <ClInclude Include="src\communication\communication_options.h" />
+    <ClInclude Include="src\communication\communication_test.h" />
+    <ClInclude Include="src\communication\connection\connection.h" />
+    <ClInclude Include="src\communication\connection\connection_callbacks.h" />
+    <ClInclude Include="src\communication\connection\secure_connection.h" />
+    <ClInclude Include="src\communication\connection\unsecure_connection.h" />
+    <ClInclude Include="src\communication\connection_manager.h" />
+    <ClInclude Include="src\communication\packets\get_block_header.h" />
+    <ClInclude Include="src\communication\packets\first_packet.h" />
+    <ClInclude Include="src\communication\packets\get_block.h" />
+    <ClInclude Include="src\communication\packets\get_new_transactions.h" />
+    <ClInclude Include="src\communication\packets\new_blocks.h" />
+    <ClInclude Include="src\communication\packets\new_transactions.h" />
+    <ClInclude Include="src\communication\packets\packet.h" />
+    <ClInclude Include="src\communication\packets\packet_execution_params.h" />
+    <ClInclude Include="src\communication\session.h" />
+    <ClInclude Include="src\communication\session_data.h" />
+    <ClInclude Include="src\communication\shared_transaction_ids.h" />
+    <ClInclude Include="src\const.h" />
+    <ClInclude Include="src\crypto\certificate.h" />
+    <ClInclude Include="src\crypto\crypto.h" />
+    <ClInclude Include="src\crypto\crypto_array.h" />
+    <ClInclude Include="src\crypto\exception.h" />
+    <ClInclude Include="src\crypto\hash.h" />
+    <ClInclude Include="src\crypto\miner_id.h" />
+    <ClInclude Include="src\crypto\private_key.h" />
+    <ClInclude Include="src\crypto\public_key.h" />
+    <ClInclude Include="src\crypto\multi_signatures.h" />
+    <ClInclude Include="src\crypto\signature.h" />
+    <ClInclude Include="src\crypto\transaction_id.h" />
+    <ClInclude Include="src\crypto\user_id.h" />
+    <ClInclude Include="src\database\base_database.h" />
+    <ClInclude Include="src\database\columns.h" />
+    <ClInclude Include="src\database\columns\blocks.h" />
+    <ClInclude Include="src\database\columns\column.h" />
+    <ClInclude Include="src\database\columns\default.h" />
+    <ClInclude Include="src\database\columns\miners.h" />
+    <ClInclude Include="src\database\columns\stateful_column.h" />
+    <ClInclude Include="src\database\columns\storage_entries.h" />
+    <ClInclude Include="src\database\columns\storage_prefixes.h" />
+    <ClInclude Include="src\database\columns\transactions.h" />
+    <ClInclude Include="src\database\columns\transaction_hashes.h" />
+    <ClInclude Include="src\database\columns\users.h" />
+    <ClInclude Include="src\database\columns\user_history.h" />
+    <ClInclude Include="src\database\columns\user_sponsors.h" />
+    <ClInclude Include="src\database\columns\user_updates.h" />
+    <ClInclude Include="src\database\confirmed_database.h" />
+    <ClInclude Include="src\database\database_facades.h" />
+    <ClInclude Include="src\database\database_options.h" />
+    <ClInclude Include="src\database\facades\blocks.h" />
+    <ClInclude Include="src\database\facades\facade.h" />
+    <ClInclude Include="src\database\facades\miners.h" />
+    <ClInclude Include="src\database\facades\state.h" />
+    <ClInclude Include="src\database\facades\storage.h" />
+    <ClInclude Include="src\database\facades\transactions.h" />
+    <ClInclude Include="src\database\facades\users.h" />
+    <ClInclude Include="src\database\database.h" />
+    <ClInclude Include="src\database\unconfirmed_database.h" />
+    <ClInclude Include="src\filesystem\filesystem.h" />
+    <ClInclude Include="src\models\miner\miner.h" />
+    <ClInclude Include="src\models\miner\miner_settings.h" />
+    <ClInclude Include="src\models\storage\prefix.h" />
+    <ClInclude Include="src\models\storage\prefix_settings.h" />
+    <ClInclude Include="src\models\storage\storage_entry.h" />
+    <ClInclude Include="src\models\user\invalid_power_exception.h" />
+    <ClInclude Include="src\models\user\power_level.h" />
+    <ClInclude Include="src\models\user\user.h" />
+    <ClInclude Include="src\models\user\user_history.h" />
+    <ClInclude Include="src\models\user\user_keys.h" />
+    <ClInclude Include="src\models\user\user_key_settings.h" />
+    <ClInclude Include="src\models\user\user_security_rules.h" />
+    <ClInclude Include="src\models\user\user_settings.h" />
+    <ClInclude Include="src\models\user\user_settings_validation_error.h" />
+    <ClInclude Include="src\models\user\user_sponsor.h" />
+    <ClInclude Include="src\models\user\user_supervisors.h" />
+    <ClInclude Include="src\models\user\user_supervisor_settings.h" />
+    <ClInclude Include="src\models\user\user_update.h" />
+    <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\tools\assert.hpp" />
+    <ClInclude Include="src\tools\endpoint.hpp" />
+    <ClInclude Include="src\tools\enum_printer.hpp" />
+    <ClInclude Include="src\tools\event_loop_thread.hpp" />
+    <ClInclude Include="src\tools\exception.hpp" />
+    <ClInclude Include="src\tools\json_templates.hpp" />
+    <ClInclude Include="src\tools\logger.hpp" />
+    <ClInclude Include="src\tools\performance_timer.hpp" />
+    <ClInclude Include="src\tools\safe_callback.hpp" />
+    <ClInclude Include="src\tools\shared_thread.hpp" />
+    <ClInclude Include="src\tools\serializer.hpp" />
+    <ClInclude Include="src\tools\thread.hpp" />
+    <ClInclude Include="tests\blockchain\blockchain_fixture.h" />
+    <ClInclude Include="tests\blockchain\test_user.h" />
+    <ClInclude Include="tests\blockchain\transactions\transaction_fixture.h" />
+    <ClInclude Include="tests\communication\communication_fixture.h" />
+    <ClInclude Include="tests\database\database_fixture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,24 @@
+---
+# NOTE: following env variables are necessary to use this docker-compose file:
+# + `USER_ID="$(id -u)"`
+# + `GITHUB_RUN_ID` - GitHub workflow run id, managed internally by GitHub
+# + `CI` - managed internally by GitHub
+version: '3.8'
+services:
+  node:
+    user: "${USER_ID}"
+    image: "node:ci-${GITHUB_RUN_ID}"
+    build:
+      cache_from:
+        - "logpass/node:ci"
+        - "logpass/node:latest"
+        - "logpass/node:cache-debug"
+      target: development-stage
+      args:
+        BUILDKIT_INLINE_CACHE: 1
+        LOGPASS_ENV: "development"
+        USER_ID: "${USER_ID}"
+    environment:
+      CI: "${CI:-true}"
+    volumes:
+      - .:/app
