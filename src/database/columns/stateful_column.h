@@ -26,7 +26,7 @@ public:
     virtual ~StatefulColumn() = default;
 
     // loads column state from database, should be used when column is initialized or rollbacked
-    // m_mutex unique lock must be aquired when calling
+    // m_mutex unique lock must be acquired when calling
     virtual void load() override
     {
         auto s = get(rocksdb::Slice());
@@ -46,13 +46,13 @@ public:
         batch.Put(m_handle, rocksdb::Slice(), s);
     }
 
-    // commits changes, m_mutex unique lock must be aquired when calling
+    // commits changes, m_mutex unique lock must be acquired when calling
     virtual void commit() override
     {
         m_confirmedState = m_state;
     }
 
-    // clears temporary values, m_mutex unique lock must be aquired when calling
+    // clears temporary values, m_mutex unique lock must be acquired when calling
     virtual void clear() override
     {
         m_state = m_confirmedState;
