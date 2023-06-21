@@ -35,7 +35,7 @@ RUN addgroup --system --gid "${USER_ID}" logpass \
 
 FROM setup-stage as development-stage
 
-ENV CMAKE_VERSION=3.22.3 \
+ENV CMAKE_VERSION=3.27.0-rc3 \
   CMAKE_CHECKSUM=96ace92dfe42b1c6c9c116fdb1c7adc42cb90cbaa87adcebc1a8de7ea129865c \
   VCPKG_VERSION=2022.03.10 \
   VCPKG_CHECKSUM=d94456e6d17e31051663a4e909ca5627882d9589649084ef2db6492a6405d1cc \
