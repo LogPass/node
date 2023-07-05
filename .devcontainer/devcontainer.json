@@ -1,0 +1,21 @@
+{
+    "name": "logpass",
+
+    "dockerComposeFile": [
+        "../docker-compose.yml",
+        "docker-compose.override.yml"
+    ],
+    "containerEnv": {
+        "SHELL": "/bin/bash",
+        "CMAKE_TOOLCHAIN_FILE": "/opt/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    },
+    "service": "node",
+    "workspaceFolder": "/workspace",
+    "containerUser": "logpass",
+    "shutdownAction": "stopCompose",
+    "forwardPorts": [8080, 8150],
+    "portsAttributes": {
+        "8080": {"label": "API"},
+        "8150": {"label": "P2P"}
+    }
+}

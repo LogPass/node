@@ -37,3 +37,7 @@ docker-compose.override.yml
 
 # local development
 config.ini
+
+# dev container
+!.devcontainer/devcontainer.json
+!.devcontainer/docker-compose.override.yml

@@ -1,0 +1,18 @@
+---
+version: '3.8'
+services:
+  node:
+    build:
+      target: development-stage
+      args:
+        LOGPASS_ENV: development
+    environment:
+      - LOGPASS_ENV=development
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    entrypoint: []
+    volumes:
+      - ..:/workspace:cached
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
