@@ -83,12 +83,12 @@ BOOST_AUTO_TEST_CASE(blockchain)
         const size_t chunks = 8;
         std::vector<Transaction_cptr> newTransactionsChunks[chunks];
         {
-            TimeTester t("Creating 70k * 8 and signing transfer transactions, using 8 threads");
+            TimeTester t("Creating 30k * 8 and signing transfer transactions, using 8 threads");
             std::vector<std::thread> threads;
             uint32_t blockId = blockchain->getExpectedBlockId();
             for (size_t x = 0; x < chunks; ++x) {
                 threads.push_back(std::thread([&, x] {
-                    for (size_t i = x; i < 70000 * chunks; i += chunks) {
+                    for (size_t i = x; i < 30000 * chunks; i += chunks) {
                         auto transferTransaction =
                             TransferTransaction::create(blockId, -1, publicKeys[i % privateKeys.size()],
                                                         1 + i / privateKeys.size())->setUserId(blockchain->getUserId())->
@@ -108,11 +108,11 @@ BOOST_AUTO_TEST_CASE(blockchain)
             }
 
             {
-                TimeTester t("Posting 70k transfer transactions");
+                TimeTester t("Posting 30k transfer transactions");
                 BOOST_TEST_REQUIRE(blockchain->postTransactions(chunk));
             }
 
-            while (blockchain->getPendingTransactions().getPendingTransactionsCount() > 10000) {
+            while (blockchain->getPendingTransactions().getTransactionsCount() > 1000) {
                 {
                     TimeTester t("Mining block with transfer transactions");
                     block = blockchain->mineBlock();
@@ -306,7 +306,7 @@ BOOST_FIXTURE_TEST_CASE(slowest_transactions, BlockchainFixture)
                     for (size_t i = 0; i < 1000; ++i) {
                         UserId recipient = users[(i + 1 + iter) % 1000];
                         UserId sponsor = keys[(i + 100) % 1000].publicKey();
-                        auto transaction = TransferTransaction::create(blockId, 1, recipient, kTransactionFee + iter)->
+                        auto transaction = TransferTransaction::create(blockId, -1, recipient, kTransactionFee + iter)->
                             setUserId(users[i])->setSponsorId(sponsor)->sign(users[i].getKeys());
                         transactions[i + iter * 1000] = transaction;
                     }

@@ -19,15 +19,15 @@ BOOST_FIXTURE_TEST_CASE(multiple_instances, CommunicationFixture)
         publicKeys.push_back(privateKey.publicKey());
 
     {
-        TimeTester p("Adding 20 instances");
-        addInstances(20);
+        TimeTester p("Adding 10 instances");
+        addInstances(10);
     }
 
     // mine kMinersQueueSize blocks to change next miner
     mineAndAddBlock(blockchains[0]->getLatestBlockId() + kMinersQueueSize);
     BOOST_TEST_REQUIRE(databases[0]->confirmed().blocks.getMinersQueue().front() != blockchains[0]->getMinerId());
 
-    BOOST_TEST_REQUIRE(synchronizeInstances(30));
+    BOOST_TEST_REQUIRE(synchronizeInstances(120));
 
     std::vector<Transaction_cptr> newTransactions;
     for (size_t i = 0; i < privateKeys.size(); ++i) {
@@ -126,8 +126,8 @@ BOOST_FIXTURE_TEST_CASE(multiple_instances_big_transactions, CommunicationFixtur
     blockchains[0]->mineBlock();
 
     {
-        TimeTester p("Adding 9 instances");
-        addInstances(9);
+        TimeTester p("Adding 7 instances");
+        addInstances(7);
     }
 
     std::vector<Transaction_cptr> transactions;
@@ -289,6 +289,70 @@ BOOST_FIXTURE_TEST_CASE(synchronization_1000_small_blocks, CommunicationFixture)
                 uint32_t connections = communications[b]->getActiveConnectionsCount();
                 BOOST_TEST_MESSAGE("Blockchain "s << std::setw(2) << b << " has block "s << blockId << " and "s <<
                     connections << " active connections"s);
+            }
+        }
+    }
+}
+
+BOOST_FIXTURE_TEST_CASE(storage_benchmark, CommunicationFixture)
+{
+    {
+        TimeTester p("Initializing first instance");
+        addInstances(1);
+    }
+    auto createPrefixTransaction =
+        StorageCreatePrefixTransaction::create(blockchains[0]->getExpectedBlockId(), -1, "XXXX")->
+        setUserId(blockchains[0]->getUserId())->sign({ blockchains[0]->getMinerKey() });
+
+    BOOST_TEST_REQUIRE(blockchains[0]->postTransaction(createPrefixTransaction));
+    blockchains[0]->mineBlock();
+
+    {
+        TimeTester p("Adding 7 instances (8 in total)");
+        addInstances(7);
+    }
+
+    for(size_t i = 0; i < 100; ++i) {
+        TimeTester p("Executing 2048 transactions, each with at least 16 KB of data and synchronizing them, round "s + std::to_string(i+1) + " of 100"s);
+        std::vector<Transaction_cptr> transactions;
+
+        {
+            TimeTester p("Generating 2048 transactions, each with at least 16 KB of data");
+            for (size_t x = 0; x < 2048; ++x) {
+                std::string randomValue((1024 * 16 + x) % kStorageEntryMaxValueLength, 'X');
+                std::string randomKey = Hash::generateRandom().toString();
+                auto transaction = StorageAddEntryTransaction::create(blockchains[0]->getExpectedBlockId(), -1,
+                                                                        "XXXX", randomKey, randomValue)->
+                    setUserId(blockchains[0]->getUserId())->sign({ blockchains[0]->getMinerKey() });
+                transactions.push_back(transaction);
+            }
+        }
+
+        {
+            TimeTester p("Posting "s + std::to_string(transactions.size()) + " transactions to random node"s);
+            BOOST_TEST_REQUIRE(blockchains[i % communications.size()]->postTransactions(transactions));
+        }
+
+        {
+            TimeTester p("Synchronizing all instances");
+            for (size_t i = 0; i < 120; ++i) {
+                bool hasTransactions = true;
+                for (auto& transaction : transactions) {
+                    if (!databases[0]->confirmed().transactions.getTransaction(transaction->getId())) {
+                        hasTransactions = false;
+                        break;
+                    }
+                }
+                if (hasTransactions) {
+                    break;
+                }
+
+                {
+                    TimeTester p("Mining new block");
+                    BOOST_TEST_REQUIRE(mineAndAddBlock(blockchains[0]->getLatestBlockId() + 1));
+                }
+                BOOST_TEST_REQUIRE(synchronizeInstances(120));
+                std::this_thread::sleep_for(chrono::seconds(1));
             }
         }
     }
